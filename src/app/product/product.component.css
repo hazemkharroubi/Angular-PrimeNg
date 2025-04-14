@@ -1,0 +1,7 @@
+/* S'assurer que la hauteur est 100vh (hauteur de la fenêtre) */
+.flex {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

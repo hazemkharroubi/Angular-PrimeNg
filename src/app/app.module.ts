@@ -13,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageService } from 'primeng/api';
+import { ProductModule } from './product/product.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MenubarModule } from 'primeng/menubar';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +25,8 @@ import { MessageService } from 'primeng/api';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    NavbarComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,9 @@ import { MessageService } from 'primeng/api';
     InputTextModule,
     HttpClientModule,
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProductModule,
+    MenubarModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
