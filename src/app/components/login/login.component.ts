@@ -12,6 +12,7 @@ export class LoginComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
   })
+
   constructor(private fb: FormBuilder) { }
 
   get email() {

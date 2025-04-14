@@ -19,7 +19,7 @@
       </small>
     </div>
 
-    <p-button label=" SIGN IN" styleClass="w-full" />
+    <p-button label=" SIGN IN" styleClass="w-full" [disabled]="loginForm.invalid" />
     <div class="mt-2">
       Not a member? <a routerLink="/register">Register</a>
     </div>
