@@ -40,6 +40,7 @@ import { ContactComponent } from './components/contact/contact.component';
     BrowserAnimationsModule,
     ProductModule,
     MenubarModule
+
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
