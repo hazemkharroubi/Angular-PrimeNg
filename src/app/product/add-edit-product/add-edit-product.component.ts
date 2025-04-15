@@ -14,6 +14,9 @@ export class AddEditProductComponent {
   @Output() clickClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() clickAdd: EventEmitter<any> = new EventEmitter<any>();
 
+  visible: boolean = false;
+  position: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' = 'center';
+
   productForm = this.fb.group({
     title: ['', [Validators.required]],
     price: [0, [Validators.required]],
@@ -36,7 +39,6 @@ export class AddEditProductComponent {
       (response) => {
         console.log('Product added successfully', response);
         this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Product added successfully!' });
-
         this.clickAdd.emit(response);
         this.closeModal();
       },
@@ -44,6 +46,10 @@ export class AddEditProductComponent {
         this.msgService.add({ severity: 'error', summary: 'Rrror', detail: error });
         console.log('Error occured!')
       })
+  }
+  showDialog(position: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright') {
+    this.position = position;
+    this.visible = true;
   }
 
 

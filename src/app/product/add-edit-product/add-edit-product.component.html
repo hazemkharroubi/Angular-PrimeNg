@@ -1,5 +1,6 @@
 <p-dialog header="Add Product" [(visible)]="displayAddModal" [style]="{ width: '30vw' }" [draggable]="false"
-  [resizable]="false" (onHide)="closeModal()">
+  [resizable]="false" (onHide)="closeModal()" position="right" [modal]="true" [baseZIndex]="10000"
+  [transitionOptions]="'0.3s ease-out'">
 
   <form [formGroup]="productForm" class="product-form">
     <div class="field">
