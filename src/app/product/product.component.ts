@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from '../interfaces/product';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-product',
@@ -34,6 +35,9 @@ export class ProductComponent implements OnInit {
 
   hideAddModal(isClosed: boolean) {
     this.displayAddModal = !isClosed;
+  }
 
+  saveProductToList(newProduct: any) {
+    this.products.unshift(newProduct);
   }
 }

@@ -4,6 +4,8 @@ import { ProductComponent } from './product.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { AddEditProductModule } from './add-edit-product/add-edit-product.module';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { AddEditProductModule } from './add-edit-product/add-edit-product.module
     CommonModule,
     TableModule,
     ButtonModule,
-    AddEditProductModule
+    AddEditProductModule,
+    ToastModule,
   ],
   exports: [
     ProductComponent
   ],
+  providers: [MessageService],
 })
 export class ProductModule { }

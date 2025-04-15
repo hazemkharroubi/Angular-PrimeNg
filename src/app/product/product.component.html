@@ -5,7 +5,8 @@
   </div>
 </div>
 
-<app-add-edit-product [displayAddModal]="displayAddModal" (clickClose)="hideAddModal($event)"></app-add-edit-product>
+<app-add-edit-product [displayAddModal]="displayAddModal" (clickClose)="hideAddModal($event)"
+  (clickAdd)="saveProductToList($event)"></app-add-edit-product>
 
 <div class="w-full max-w-7xl mx-auto px-4 overflow-x-auto">
   <p-table [value]="products" class="w-full text-center" [paginator]="true" [rows]="5">

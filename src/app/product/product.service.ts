@@ -15,4 +15,8 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl);
   }
+
+  saveProduct(postData: any) {
+    return this.http.post(this.baseUrl, postData)
+  }
 }
