@@ -8,9 +8,9 @@ import { Product } from '../interfaces/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
-  constructor(private productService: ProductService) { }
   products: Product[] = [];
+  displayAddModal = false;
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.getListProducts();
@@ -28,7 +28,12 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  addProduct() {
+  showModal() {
+    this.displayAddModal = true;
+  }
+
+  hideAddModal(isClosed: boolean) {
+    this.displayAddModal = !isClosed;
 
   }
 }

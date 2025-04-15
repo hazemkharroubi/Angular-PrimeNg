@@ -3,16 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-
+import { AddEditProductModule } from './add-edit-product/add-edit-product.module';
 
 @NgModule({
   declarations: [
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     CommonModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    AddEditProductModule
   ],
   exports: [
     ProductComponent
