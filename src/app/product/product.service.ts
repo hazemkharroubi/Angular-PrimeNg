@@ -16,7 +16,11 @@ export class ProductService {
     return this.http.get<Product[]>(this.baseUrl);
   }
 
-  saveProduct(postData: any) {
-    return this.http.post(this.baseUrl, postData)
+  addEditProduct(postData: any, selectedProduct: any) {
+    if (!selectedProduct) {
+      return this.http.post('https://fakestoreapi.com/products', postData)
+    } else {
+      return this.http.put(`https://fakestoreapi.com/products/${selectedProduct.id}`, postData)
+    }
   }
 }

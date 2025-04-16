@@ -10,7 +10,8 @@ import { MessageService } from 'primeng/api';
 })
 export class ProductComponent implements OnInit {
   products: Product[] = [];
-  displayAddModal = false;
+  displayAddEditModal = false;
+  selectedProduct: any = null;
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -29,15 +30,29 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  showModal() {
-    this.displayAddModal = true;
+  showAddModal() {
+    this.displayAddEditModal = true;
+    this.selectedProduct = null;
   }
 
   hideAddModal(isClosed: boolean) {
-    this.displayAddModal = !isClosed;
+    this.displayAddEditModal = !isClosed;
   }
 
-  saveProductToList(newProduct: any) {
-    this.products.unshift(newProduct);
+  saveOrUpdateProductToList(newProduct: any) {
+    if (this.selectedProduct) {
+      // Update existing product
+      const productIndex = this.products.findIndex((product) => product.id === newProduct.id);
+      this.products[productIndex] = newProduct;
+    } else {
+      // Add new product
+      this.products.unshift(newProduct);
+    }
+    //this.getListProducts();
+  }
+
+  editProduct(product: Product) {
+    this.displayAddEditModal = true;
+    this.selectedProduct = product;
   }
 }

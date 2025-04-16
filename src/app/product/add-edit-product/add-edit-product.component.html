@@ -1,5 +1,5 @@
-<p-dialog header="Add Product" [(visible)]="displayAddModal" [style]="{ width: '30vw' }" [draggable]="false"
-  [resizable]="false" (onHide)="closeModal()" position="right" [modal]="true" [baseZIndex]="10000"
+<p-dialog header="{{ modelType }} Product" [(visible)]="displayAddEditModal" [style]="{ width: '30vw' }"
+  [draggable]="false" [resizable]="false" (onHide)="closeModal()" position="right" [modal]="true" [baseZIndex]="10000"
   [transitionOptions]="'0.3s ease-out'">
 
   <form [formGroup]="productForm" class="product-form">
@@ -39,6 +39,6 @@
 
   <ng-template pTemplate="footer">
     <p-button label="Cancel" severity="danger" styleClass="p-button-text" (click)="closeModal()" />
-    <p-button label="Add" (click)="addProduct()" [disabled]="productForm.invalid" />
+    <p-button label="{{ modelType }}" (click)="addEditProduct()" [disabled]="productForm.invalid" />
   </ng-template>
 </p-dialog>
