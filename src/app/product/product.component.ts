@@ -26,8 +26,8 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.getListProducts();
   }
 
-  getListProducts() {
-    this.pdtSubscription = this.productService.getProducts().subscribe(
+  getListProducts(category?: string) {
+    this.pdtSubscription = this.productService.getProducts(category || "").subscribe(
       (response) => {
         this.products = response;
         console.log(this.products);
@@ -50,11 +50,9 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   saveOrUpdateProductToList(newProduct: any) {
     if (this.selectedProduct) {
-      // Update existing product
       const productIndex = this.products.findIndex((product) => product.id === newProduct.id);
       this.products[productIndex] = newProduct;
     } else {
-      // Add new product
       this.products.unshift(newProduct);
     }
     //this.getListProducts();
@@ -95,6 +93,10 @@ export class ProductComponent implements OnInit, OnDestroy {
         this.subscriptions.push(sub);
       }
     });
+  }
+
+  getProductsByCategory(Category: string) {
+    this.getListProducts(Category);
   }
 
   ngOnDestroy(): void {

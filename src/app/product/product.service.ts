@@ -8,12 +8,11 @@ import { Product } from '../interfaces/product';
 })
 export class ProductService {
 
-  baseUrl = 'https://fakestoreapi.com/products?sort=desc';
-
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl);
+  getProducts(category: string): Observable<Product[]> {
+    const categoryUrl = category ? `/category/${category}` : '';
+    return this.http.get<Product[]>(`https://fakestoreapi.com/products${categoryUrl}?sort=desc`);
   }
 
   addEditProduct(postData: any, selectedProduct: any) {
@@ -27,5 +26,9 @@ export class ProductService {
   deleteProduct(productId: number) {
     return this.http.delete(`https://fakestoreapi.com/products/${productId}`)
   }
-  
+
+  getAllGategories(): Observable<string[]> {
+    return this.http.get<string[]>('https://fakestoreapi.com/products/categories');
+  }
+
 }

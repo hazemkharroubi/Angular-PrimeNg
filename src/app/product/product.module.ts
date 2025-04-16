@@ -6,11 +6,15 @@ import { ButtonModule } from 'primeng/button';
 import { AddEditProductModule } from './add-edit-product/add-edit-product.module';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { FilterProjectComponent } from './filter-project/filter-project.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     ProductComponent,
+    FilterProjectComponent,
   ],
   imports: [
     CommonModule,
@@ -18,6 +22,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     ButtonModule,
     AddEditProductModule,
     ConfirmDialogModule,
+    DropdownModule,
+    FormsModule
   ],
   exports: [
     ProductComponent
