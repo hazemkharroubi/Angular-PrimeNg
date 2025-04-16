@@ -23,4 +23,9 @@ export class ProductService {
       return this.http.put(`https://fakestoreapi.com/products/${selectedProduct.id}`, postData)
     }
   }
+
+  deleteProduct(productId: number) {
+    return this.http.delete(`https://fakestoreapi.com/products/${productId}`)
+  }
+  
 }

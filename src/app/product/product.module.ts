@@ -4,8 +4,9 @@ import { ProductComponent } from './product.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { AddEditProductModule } from './add-edit-product/add-edit-product.module';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 
 @NgModule({
   declarations: [
@@ -16,11 +17,11 @@ import { MessageService } from 'primeng/api';
     TableModule,
     ButtonModule,
     AddEditProductModule,
-    ToastModule,
+    ConfirmDialogModule,
   ],
   exports: [
     ProductComponent
   ],
-  providers: [MessageService],
+  providers: [MessageService, ConfirmationService],
 })
 export class ProductModule { }
